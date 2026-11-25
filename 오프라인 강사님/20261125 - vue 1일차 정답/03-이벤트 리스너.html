@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="app">
+
+    <!-- button에 click 이벤트를 감지하면 increment 함수를 실행하겠다 -->
+    <button @click="increment">
+      {{count}}
+    </button>
+
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    //1. 구조분해할당
+    const {createApp, ref} = Vue
+    //2. createApp함수
+    const app = createApp ({
+      setup(){
+        const count = ref(0)
+        const increment = function (){
+          // console.log(count)
+          // {value:0}
+          count.value++
+        }
+        return{
+          count,
+          increment
+        }
+      }
+    })
+    //3. mount
+    app.mount('#app')
+  </script>
+</body>
+
+</html>
